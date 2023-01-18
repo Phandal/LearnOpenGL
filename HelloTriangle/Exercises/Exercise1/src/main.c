@@ -1,3 +1,4 @@
+/* Try to draw 2 triangles next to each other using glDrawArrays by adding more vertices to your data */
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -79,15 +80,13 @@ int main(void) {
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
   float vertices[] = {
-     0.5f,  0.5f, 0.0f, // Top Right
-     0.5f, -0.5f, 0.0f, // Bottom Right
-    -0.5f, -0.5f, 0.0f, // Bottom Left
-    -0.5f,  0.5f, 0.0f, // Top Left
-  };
+    -0.75f, -0.5f, 0.0f, // bot right
+    -0.50f,  0.5f, 0.0f, // top middle
+    -0.25f, -0.5f, 0.0f, // bot left
 
-  unsigned int indicies[] = {
-    0, 1, 3,
-    1, 2, 3,
+     0.25f, -0.5f, 0.0f, // bot right
+     0.50f,  0.5f, 0.0f, // top middle
+     0.75f, -0.5f, 0.0f, // bot left
   };
 
   GLuint vao;
@@ -101,11 +100,6 @@ int main(void) {
 
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
   glEnableVertexAttribArray(0);
-
-  GLuint eob;
-  glGenBuffers(1, &eob);
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, eob);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indicies), indicies, GL_STATIC_DRAW);
 
   GLuint vertexShader;
   vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -140,7 +134,8 @@ int main(void) {
 
     glUseProgram(shaderProgram);
     glBindVertexArray(vao);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawArrays(GL_TRIANGLES, 3, 3);
     glBindVertexArray(0);
 
     glfwSwapBuffers(window);
@@ -149,7 +144,6 @@ int main(void) {
 
   glDeleteVertexArrays(1, &vao);
   glDeleteBuffers(1, &vbo);
-  glDeleteBuffers(1, &eob);
   glDeleteProgram(shaderProgram);
   glfwTerminate();
   return 0;

@@ -1,0 +1,44 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-I./deps/GLAD/include",
+      "-framework",
+      "OpenGL",
+      "-framework",
+      "Cocoa",
+      "-framework",
+      "IOKit",
+      "-o",
+      "build/prog",
+      "src/glad.c"
+    ],
+    "directory": "/Users/bailey/Development/LearnOpenGL/HelloTriangle/Exercises/Exercise1",
+    "file": "/Users/bailey/Development/LearnOpenGL/HelloTriangle/Exercises/Exercise1/src/glad.c",
+    "output": "/Users/bailey/Development/LearnOpenGL/HelloTriangle/Exercises/Exercise1/build/prog"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-I./deps/GLAD/include",
+      "-framework",
+      "OpenGL",
+      "-framework",
+      "Cocoa",
+      "-framework",
+      "IOKit",
+      "-o",
+      "build/prog",
+      "src/main.c"
+    ],
+    "directory": "/Users/bailey/Development/LearnOpenGL/HelloTriangle/Exercises/Exercise1",
+    "file": "/Users/bailey/Development/LearnOpenGL/HelloTriangle/Exercises/Exercise1/src/main.c",
+    "output": "/Users/bailey/Development/LearnOpenGL/HelloTriangle/Exercises/Exercise1/build/prog"
+  }
+]
