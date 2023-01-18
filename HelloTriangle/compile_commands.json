@@ -1,0 +1,44 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-I./deps/GLAD/include",
+      "-framework",
+      "OpenGL",
+      "-framework",
+      "Cocoa",
+      "-framework",
+      "IOKit",
+      "-o",
+      "build/prog",
+      "src/glad.c"
+    ],
+    "directory": "/Users/bailey/Development/LearnOpenGL",
+    "file": "/Users/bailey/Development/LearnOpenGL/src/glad.c",
+    "output": "/Users/bailey/Development/LearnOpenGL/build/prog"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-I./deps/GLAD/include",
+      "-framework",
+      "OpenGL",
+      "-framework",
+      "Cocoa",
+      "-framework",
+      "IOKit",
+      "-o",
+      "build/prog",
+      "src/main.c"
+    ],
+    "directory": "/Users/bailey/Development/LearnOpenGL",
+    "file": "/Users/bailey/Development/LearnOpenGL/src/main.c",
+    "output": "/Users/bailey/Development/LearnOpenGL/build/prog"
+  }
+]
