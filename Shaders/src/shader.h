@@ -5,4 +5,6 @@
 
 GLuint createShaderProgram(const char* vertexFilePath, const char* fragmentFilePath);
 
+void setFloatUniform(GLuint shaderProgram, const char* uniform, float value);
+
 #endif

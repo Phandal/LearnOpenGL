@@ -39,6 +39,7 @@ char* _readFileToString(const char* filePath) {
   fread(buffer, 1, length, fd);
   fclose(fd);
 
+  buffer[length-1] = '\0';
   return buffer;
 }
 
@@ -50,6 +51,15 @@ GLuint _compileShader(GLenum shaderType, const char* shaderSource) {
   _checkCompilationStatus(shaderType, shader);
 
   return shader;
+}
+
+void setFloatUniform(GLuint shaderProgram, const char* uniform, float value) {
+  GLint uniformLocation = glGetUniformLocation(shaderProgram, uniform);
+  if (uniformLocation < 0) {
+    fprintf(stderr, "Could not find uniform in shader: %s\n", uniform);
+    return;
+  }
+  glUniform1f(uniformLocation, value);
 }
 
 GLuint createShaderProgram(const char* vertexFilePath, const char* fragmentFilePath) {
