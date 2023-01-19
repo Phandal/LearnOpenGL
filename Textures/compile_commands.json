@@ -1,0 +1,44 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-I./deps/GLAD/include",
+      "-framework",
+      "OpenGL",
+      "-framework",
+      "Cocoa",
+      "-framework",
+      "IOKit",
+      "-o",
+      "build/prog",
+      "src/glad.c"
+    ],
+    "directory": "/Users/bailey/Development/LearnOpenGL/Shaders",
+    "file": "/Users/bailey/Development/LearnOpenGL/Shaders/src/glad.c",
+    "output": "/Users/bailey/Development/LearnOpenGL/Shaders/build/prog"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-I./deps/GLAD/include",
+      "-framework",
+      "OpenGL",
+      "-framework",
+      "Cocoa",
+      "-framework",
+      "IOKit",
+      "-o",
+      "build/prog",
+      "src/main.c"
+    ],
+    "directory": "/Users/bailey/Development/LearnOpenGL/Shaders",
+    "file": "/Users/bailey/Development/LearnOpenGL/Shaders/src/main.c",
+    "output": "/Users/bailey/Development/LearnOpenGL/Shaders/build/prog"
+  }
+]
