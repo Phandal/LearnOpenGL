@@ -1,3 +1,4 @@
+/* Use a uniform variable as the mix function's third parameter to vary the amount the two textures are visible. Use the up and down arrow keys to change how much the container or the smiley face is visible */
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -12,6 +13,9 @@
 #define TEXTURE_PATH1 "./assets/container.jpg"
 #define TEXTURE_PATH2 "./assets/awesomeface.png"
 
+float mix = 0;
+int wireFrame = GL_FALSE;
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
   #pragma unused(window)
   glViewport(0, 0, width, height);
@@ -21,9 +25,34 @@ void processInput(GLFWwindow* window) {
   if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
     glfwSetWindowShouldClose(window, GL_TRUE);
   }
+
+  if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+    if (wireFrame == GL_TRUE) {
+      glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+      wireFrame = GL_FALSE;
+    } else {
+      glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+      wireFrame = GL_TRUE;
+    }
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+    if (mix < 1) {
+      mix += 0.05f;
+    }
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+    if (mix > 0) {
+      mix -= 0.05f;
+    }
+  }
 }
 
 int main(void) {
+
+  /* Used later on */
+
   if(!glfwInit()) {
     fprintf(stderr, "Failed to initialize GLFW\n");
     return 1;
@@ -54,10 +83,10 @@ int main(void) {
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
   float vertices[] = {
-     0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
-     0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
-    -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
-    -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f, // top left
+     0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.1f,   1.0, 1.0f, // top right
+     0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.1f,   1.0f, 0.0f, // bottom right
+    -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 0.1f,   0.0f, 0.0f, // bottom left
+    -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.1f,   0.0f, 1.0f, // top left
   };
 
   unsigned int indicies[] = {
@@ -134,6 +163,7 @@ int main(void) {
   glUseProgram(shaderProgram); /* DO NOT FORGET TO ACTIVATE THE SHADER BEFORE SETTING UNIFORMS */
   glUniform1i(glGetUniformLocation(shaderProgram, "aTexture"), 0);
   glUniform1i(glGetUniformLocation(shaderProgram, "bTexture"), 1);
+  glUniform1f(glGetUniformLocation(shaderProgram, "mixLevel"), mix);
 
   /* Uncomment the following line to render in wireframe mode */
   // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -150,6 +180,7 @@ int main(void) {
     glBindTexture(GL_TEXTURE_2D, texture2);
 
     glUseProgram(shaderProgram);
+    glUniform1f(glGetUniformLocation(shaderProgram, "mixLevel"), mix);
     glBindVertexArray(vao);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);

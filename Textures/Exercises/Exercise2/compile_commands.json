@@ -1,0 +1,58 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-I/usr/local/include",
+      "-I./deps/GLAD/include",
+      "-o",
+      "build/prog",
+      "src/glad.c"
+    ],
+    "directory": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1",
+    "file": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1/src/glad.c",
+    "output": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1/build/prog"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-I/usr/local/include",
+      "-I./deps/GLAD/include",
+      "-o",
+      "build/prog",
+      "src/main.c"
+    ],
+    "directory": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1",
+    "file": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1/src/main.c",
+    "output": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1/build/prog"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-I/usr/local/include",
+      "-I./deps/GLAD/include",
+      "-o",
+      "build/prog",
+      "src/shader.c"
+    ],
+    "directory": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1",
+    "file": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1/src/shader.c",
+    "output": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1/build/prog"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-I/usr/local/include",
+      "-I./deps/GLAD/include",
+      "-o",
+      "build/prog",
+      "src/stb_image.c"
+    ],
+    "directory": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1",
+    "file": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1/src/stb_image.c",
+    "output": "/home/bailey/Development/LearnOpenGL/Textures/Exercises/Exercise1/build/prog"
+  }
+]
