@@ -1,6 +1,9 @@
-/* Use a uniform variable as the mix function's third parameter to vary the amount the two textures are visible. Use the up and down arrow keys to change how much the container or the smiley face is visible */
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <cglm/cglm.h>
+#include <cglm/affine.h>
+#include <cglm/io.h>
+#include <cglm/types.h>
 
 #include "shader.h"
 #include "stb_image.h"
@@ -13,7 +16,7 @@
 #define TEXTURE_PATH1 "./assets/container.jpg"
 #define TEXTURE_PATH2 "./assets/awesomeface.png"
 
-float mix = 0;
+float mix = 0.5;
 int wireFrame = GL_FALSE;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
@@ -93,6 +96,10 @@ int main(void) {
     0, 1, 3, // first triangle
     1, 2, 3, // second triangle
   };
+
+  vec3 transVec = { 0.5f, -0.5f, 0.0f };
+  vec3 rotateVec = { 0.0f, 0.0f, 1.0f };
+  mat4 trans;
 
   GLuint vao;
   glGenVertexArrays(1, &vao);
@@ -179,8 +186,12 @@ int main(void) {
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, texture2);
 
+    glm_translate_make(trans, transVec);
+    glm_rotate(trans, (float)glfwGetTime(), rotateVec);
+
     glUseProgram(shaderProgram);
     glUniform1f(glGetUniformLocation(shaderProgram, "mixLevel"), mix);
+    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "transform"), 1, GL_FALSE, (float*)trans);
     glBindVertexArray(vao);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
