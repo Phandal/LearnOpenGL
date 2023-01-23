@@ -1,0 +1,94 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-I./deps/GLAD/include",
+      "-I./deps/CGLM/include",
+      "-g",
+      "-framework",
+      "OpenGL",
+      "-framework",
+      "Cocoa",
+      "-framework",
+      "IOKit",
+      "-o",
+      "build/prog",
+      "src/glad.c"
+    ],
+    "directory": "/Users/bailey/Development/LearnOpenGL/Tranformations",
+    "file": "/Users/bailey/Development/LearnOpenGL/Tranformations/src/glad.c",
+    "output": "/Users/bailey/Development/LearnOpenGL/Tranformations/build/prog"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-I./deps/GLAD/include",
+      "-I./deps/CGLM/include",
+      "-g",
+      "-framework",
+      "OpenGL",
+      "-framework",
+      "Cocoa",
+      "-framework",
+      "IOKit",
+      "-o",
+      "build/prog",
+      "src/main.c"
+    ],
+    "directory": "/Users/bailey/Development/LearnOpenGL/Tranformations",
+    "file": "/Users/bailey/Development/LearnOpenGL/Tranformations/src/main.c",
+    "output": "/Users/bailey/Development/LearnOpenGL/Tranformations/build/prog"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-I./deps/GLAD/include",
+      "-I./deps/CGLM/include",
+      "-g",
+      "-framework",
+      "OpenGL",
+      "-framework",
+      "Cocoa",
+      "-framework",
+      "IOKit",
+      "-o",
+      "build/prog",
+      "src/shader.c"
+    ],
+    "directory": "/Users/bailey/Development/LearnOpenGL/Tranformations",
+    "file": "/Users/bailey/Development/LearnOpenGL/Tranformations/src/shader.c",
+    "output": "/Users/bailey/Development/LearnOpenGL/Tranformations/build/prog"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-I./deps/GLAD/include",
+      "-I./deps/CGLM/include",
+      "-g",
+      "-framework",
+      "OpenGL",
+      "-framework",
+      "Cocoa",
+      "-framework",
+      "IOKit",
+      "-o",
+      "build/prog",
+      "src/stb_image.c"
+    ],
+    "directory": "/Users/bailey/Development/LearnOpenGL/Tranformations",
+    "file": "/Users/bailey/Development/LearnOpenGL/Tranformations/src/stb_image.c",
+    "output": "/Users/bailey/Development/LearnOpenGL/Tranformations/build/prog"
+  }
+]
