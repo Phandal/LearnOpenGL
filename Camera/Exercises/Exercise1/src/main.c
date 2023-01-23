@@ -164,7 +164,8 @@ int main(void) {
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-  GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "OpenGl Tutorial", glfwGetPrimaryMonitor(), NULL);
+  // GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "OpenGl Tutorial", glfwGetPrimaryMonitor(), NULL);
+  GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "OpenGl Tutorial", NULL, NULL);
   if (window == NULL) {
     fprintf(stderr, "Failed to create a window\n");
     glfwTerminate();
@@ -178,8 +179,9 @@ int main(void) {
     return 1;
   }
 
-  printf("GLFW Version: %s\n", glfwGetVersionString());
-  printf("OpenGL Version: %s\n", glGetString(GL_VERSION));
+  /* Uncomment to print out the GLFW Version and OpenGL Version */
+  // printf("GLFW Version: %s\n", glfwGetVersionString());
+  // printf("OpenGL Version: %s\n", glGetString(GL_VERSION));
 
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
   glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -347,7 +349,8 @@ int main(void) {
 
     for (int i = 0; i < 10; ++i) {
       glm_translate_make(model, cubePositions[i]);
-      float angle = 20.0f * i;
+      // float angle = 20.0f * i;
+      float angle = glfwGetTime() * 25.0f + (20.0f * i);
       glm_rotate(model, glm_rad(angle), modelRotateVec);
       glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "modelMatrix"), 1, GL_FALSE, (float*)model);
       glBindVertexArray(vao);
